@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Document Manager</title>
+</head>
+<body>
+    <h1>Blockchain Document Manager</h1>
+
+    <h2>Add Document</h2>
+    <form action="/add_document" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf">
+        <button type="submit">Add Document</button>
+    </form>
+
+    <h2>Verify Document</h2>
+    <form action="/verify_document" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf">
+        <button type="submit">Verify Document</button>
+    </form>
+
+    <h2>Delete Document</h2>
+    <form action="/delete_document" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf">
+        <button type="submit">Delete Document</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+<body style="margin: 0;">
+    <div class="header" style="display: flex; flex-direction: row; align-items: center; justify-content: center; background: rgb(81, 187, 232); padding: 20px; 0">
+        <div class="nitLogo" style="width: 100px; height: 100px">
+            <img style="width: 100%" src="https://upload.wikimedia.org/wikipedia/en/2/24/National_Institute_of_Technology%2C_Srinagar_Logo.png" />
+        </div>
+        <div style="margin-left: 10px;">
+            <h2>Document Verification and Admin System</h2>
+        </div>
+    </div>
+    <div style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23), 0 1px 2px rgba(0,0,0,0.24); width: 80%; margin: 10px auto; padding: 20px;">
+        <h1>Admin Options</h1>
+        <a href="{{ url_for('add_document') }}">Add Documents</a><br>
+        <a href="{{ url_for('delete_document') }}">Delete Document</a><br>
+        <h1>List of Documments</h1>
+
+    
+        {% for doc in documents %}
+            <div>
+                
+                <h3>{{ doc.filename }}</h3>
+                <a href="{{ url_for('download_pdf', doc_id=doc.id) }}">Download PDF</a>
+            </div>
+        {% endfor %}
+        <div style="margin-top: 10px;">
+            <button style="padding: 8px 12px; border: none; background:rgb(52, 161, 208); border-radius: 4px;">
+                <a href="{{url_for('logout')}}" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: bold; font-size: 15px">Logout</a>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
